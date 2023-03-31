@@ -29,7 +29,18 @@ def index():
 
         data = response.json() 
 
-        print(data) #look in the terminal at the data 
+        print(data) #look in the terminal at the data
+                #If the response is true from the JSON then send the movies to the webpage... 
+
+        if data.get('Response') == 'True': 
+
+            movies = data["Search"] # this gets the array of movies using the key Search 
+
+            return render_template('index.html', movies=movies) 
+
+        else: 
+
+            print("Bad Response!") 
 
  
  
